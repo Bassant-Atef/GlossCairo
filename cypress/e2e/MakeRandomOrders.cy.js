@@ -57,8 +57,7 @@ describe('Checkout with CashOnDelivery', () => {
       cy.get('#billing_phone').should('be.visible').type('01272199962');
 
       const randomCity = cities[Math.floor(Math.random() * cities.length)];
-
-      cy.get('#billing_state').select(randomCity).then(() => {
+        cy.get('#billing_state').select(randomCity).then(() => {
         const availableAreas = getAreasForCity(randomCity);
 
         const randomArea = availableAreas[Math.floor(Math.random() * availableAreas.length)];
@@ -69,7 +68,7 @@ describe('Checkout with CashOnDelivery', () => {
 
         const randomDistrict = availableDistricts[Math.floor(Math.random() * availableDistricts.length)];
         cy.get('select[name="billing_city"]').select(randomDistrict);
-      });
+      }); 
 
       cy.get('#billing_address_1').should('be.visible').type('1');
       cy.get('#billing_building').should('be.visible').type('1');
